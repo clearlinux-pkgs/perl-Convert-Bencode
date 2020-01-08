@@ -4,13 +4,14 @@
 #
 Name     : perl-Convert-Bencode
 Version  : 1.03
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/O/OR/ORCLEV/Convert-Bencode-1.03.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OR/ORCLEV/Convert-Bencode-1.03.tar.gz
-Summary  : Functions for converting to/from bencoded strings
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: perl-Convert-Bencode-license = %{version}-%{release}
+Requires: perl-Convert-Bencode-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -23,7 +24,6 @@ use Convert::Bencode qw(bencode bdecode);
 Summary: dev components for the perl-Convert-Bencode package.
 Group: Development
 Provides: perl-Convert-Bencode-devel = %{version}-%{release}
-Requires: perl-Convert-Bencode = %{version}-%{release}
 Requires: perl-Convert-Bencode = %{version}-%{release}
 
 %description dev
@@ -38,8 +38,18 @@ Group: Default
 license components for the perl-Convert-Bencode package.
 
 
+%package perl
+Summary: perl components for the perl-Convert-Bencode package.
+Group: Default
+Requires: perl-Convert-Bencode = %{version}-%{release}
+
+%description perl
+perl components for the perl-Convert-Bencode package.
+
+
 %prep
 %setup -q -n Convert-Bencode-1.03
+cd %{_builddir}/Convert-Bencode-1.03
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -64,7 +74,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Convert-Bencode
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Convert-Bencode/LICENSE
+cp %{_builddir}/Convert-Bencode-1.03/LICENSE %{buildroot}/usr/share/package-licenses/perl-Convert-Bencode/f235ba4160673bcb7c9d58c2f09dbc7fc0efadea
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -77,7 +87,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Convert/Bencode.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -85,4 +94,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Convert-Bencode/LICENSE
+/usr/share/package-licenses/perl-Convert-Bencode/f235ba4160673bcb7c9d58c2f09dbc7fc0efadea
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Convert/Bencode.pm
