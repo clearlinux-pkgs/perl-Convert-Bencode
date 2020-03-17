@@ -4,7 +4,7 @@
 #
 Name     : perl-Convert-Bencode
 Version  : 1.03
-Release  : 2
+Release  : 3
 URL      : https://cpan.metacpan.org/authors/id/O/OR/ORCLEV/Convert-Bencode-1.03.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OR/ORCLEV/Convert-Bencode-1.03.tar.gz
 Summary  : No detailed summary available
@@ -98,4 +98,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Convert/Bencode.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Convert/Bencode.pm
