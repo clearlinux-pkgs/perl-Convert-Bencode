@@ -4,7 +4,7 @@
 #
 Name     : perl-Convert-Bencode
 Version  : 1.03
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/O/OR/ORCLEV/Convert-Bencode-1.03.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OR/ORCLEV/Convert-Bencode-1.03.tar.gz
 Summary  : No detailed summary available
